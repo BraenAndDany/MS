@@ -6,38 +6,136 @@ public class MASS
     public static void sprL(int[,]mass)
     {
         int dlina = 0;
-        int shirina = 1;
-        int k = 2,h=0;
+        int score = 0;
+        int top = 0, right = 0, down = 0,left=0;
         while (true)
         {
-            shirina--;
-            for (int i = 0+dlina; i < mass.GetLength(1); i++)
+          
+            if (mass.GetLength(0)==mass.GetLength(1))
             {
-                Console.WriteLine(mass[shirina, i-shirina]);
+                for (int i = 0; i < mass.GetLength(1) - score; i++)
+                {
+                    Console.Write(mass[top, i + top]+" ");
+                    dlina++;
+                }
+                score++;
+                top++;
+                if (dlina >= mass.Length)
+                {
+                    break;
+                }
+                for (int i = 0; i < mass.GetLength(0) - score; i++)
+                {
+                    Console.Write(mass[i + 1 + right, mass.GetLength(0) - 1 - right] + " ");
+                    dlina++;
+                }
+                right++;
+                if (dlina >= mass.Length)
+                {
+                    break;
+                }
+                for (int i = 0; i < mass.GetLength(1) - score; i++)
+                {
+                    Console.Write(mass[mass.GetLength(1) - 1 - down, mass.GetLength(1) - 2 - i - down] + " ");
+                    dlina++;
+                }
+                down++;
+                score++;
+                if (dlina >= mass.Length)
+                {
+                    break;
+                }
+                for (int i = 0; i < mass.GetLength(0) - score; i++)
+                {
+                    Console.Write(mass[mass.GetLength(0) - 2 - i, left] + " ");
+                    dlina++;
+                }
+                left++;
             }
-            shirina++;
-            if (shirina >= mass.GetLength(0)-1)
+            //*************************************//
+            else if (mass.GetLength(0) <= mass.GetLength(1))
             {
-                break;
+                for (int i = 0; i < mass.GetLength(1) - score; i++)
+                {
+                    Console.Write(mass[top, i + top] + " ");
+                    dlina++;
+                }
+                score++;
+                top++;
+                if (dlina >= mass.Length)
+                {
+                    break;
+                }
+                for (int i = 0; i < mass.GetLength(1)-(mass.GetLength(1)- mass.GetLength(0)) - score; i++)
+                {
+                    Console.Write(mass[i + 1 + right, mass.GetLength(1) - 1 - right] + " ");
+                    dlina++;
+                }
+                right++;
+                if (dlina >= mass.Length)
+                {
+                    break;
+                }
+                for (int i = 0; i < mass.GetLength(1) - score; i++)
+                {
+                    Console.Write(mass[mass.GetLength(0) - 1 - down, mass.GetLength(1) - 2 - i - down] + " ");
+                    dlina++;
+                }
+                down++;
+                score++;
+                if (dlina >= mass.Length)
+                {
+                    break;
+                }
+                for (int i = 0; i < mass.GetLength(1)- (mass.GetLength(1) - mass.GetLength(0)) - score; i++)
+                {
+                    Console.Write(mass[mass.GetLength(0) - 2 - i, left] + " ");
+                    dlina++;
+                }
+                left++;
             }
-            for (int i = 0+shirina; i < mass.GetLength(0); i++)
+            //**************************************//
+            else if(mass.GetLength(0) >= mass.GetLength(1))
             {
-                Console.WriteLine(mass[i, mass.GetLength(1) - shirina]);
+                for (int i = 0; i < mass.GetLength(1)-score; i++)
+                {
+                    Console.Write(mass[top, i + top] + " ");
+                    dlina++;
+                }
+                score++;
+                top++;
+                if (dlina >= mass.Length)
+                {
+                    break;
+                }
+                for (int i = 0; i < mass.GetLength(0)-score; i++)
+                {
+                    Console.Write(mass[i + 1 + right, mass.GetLength(1) - 1 - right] + " ");
+                    dlina++;
+                }
+                right++;
+                if (dlina >= mass.Length)
+                {
+                    break;
+                }
+                for (int i = 0; i < mass.GetLength(1)-score; i++)
+                {
+                    Console.Write(mass[mass.GetLength(0) - 1 - down, mass.GetLength(1) - 2 - i - down] + " ");
+                    dlina++;
+                }
+                down++;
+                score++;
+                if (dlina >= mass.Length)
+                {
+                    break;
+                }
+                for (int i = 0; i < mass.GetLength(0)-score; i++)
+                {
+                    Console.Write(mass[mass.GetLength(0) - 2 - i, left] + " ");
+                    dlina++;
+                }
+                left++;
             }
-            dlina++;
-            for(int i = 0+dlina;i < mass.GetLength(1); i++)
-            {
-                Console.WriteLine(mass[mass.GetLength(0)-shirina,mass.GetLength(1)-dlina-i]);
-            }
-            shirina++;
-            for (int i = 0+shirina; i < mass.GetLength(0); i++)
-            {
-                Console.WriteLine(mass[mass.GetLength(0)-k, h]);
-                k++;
-            }
-            k = 2;
-            h++;
-            dlina++;
             
         }
     }
